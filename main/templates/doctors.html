@@ -1,0 +1,183 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <title>DPMAS</title>
+    <!-- Bootstrap CSS -->
+ <link href="{% static 'main/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'main/css/themify-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'main/css/flaticon.css' %}" rel="stylesheet">
+    <link href="{% static 'main/vendors/fontawesome/css/all.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'main/owl-carousel/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'main/nimate-css/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'main/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'main/css/esponsive.css' %}" rel="stylesheet">
+</head>
+<body>
+
+    <!--================Header Menu Area =================-->
+ <!--================Header Menu Area =================-->
+    <header class="header_area">
+        <div class="top_menu row m0">
+  
+        </div>  
+        <div class="main_menu">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <a class="navbar-brand logo_h" href="index.html"><img src="{% static 'main/img/logo.png' %}" alt=""></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav menu_nav ml-auto">
+                            <li class="nav-item"><a class="nav-link" href="/">Home</a></li> 
+                            <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li> 
+                            <li class="nav-item"><a class="nav-link" href="{% url 'dr_list' %}">Doctors</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'reg' %}">Register</a></li>      
+
+                            <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+   <!--================Header Menu Area =================-->
+
+
+    <!--================Home Banner Area =================-->
+    <section class="banner_area">
+      <div class="banner_inner d-flex align-items-center">
+        <div class="container">
+          <div
+            class="banner_content d-md-flex justify-content-between align-items-center"
+          >
+            <div class="mb-3 mb-md-0">
+              <h2>Doctors</h2>
+              <p>Doctors do a lot for a patient when they give a disease name</p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--================End Home Banner Area =================-->
+
+
+     
+    <section class="team-area area-padding">
+        <div class="container">
+            <div class="area-heading row">
+                <div class="col-md-5 col-xl-4">
+                    <h3>
+                    Experienced Doctors</h3>
+                </div>
+                <div class="col-md-7 col-xl-8">
+                    <p>Disease prediction and medication advice system using supervised machine learning algorithms  is an exciting and rapidly growing field that involves the use of advanced algorithms and computational techniques to analyze large amounts of medical data and make predictions about future health outcomes. By combining machine learning with medical expertise, researchers and healthcare professionals are able to identify patterns and correlations in data that might otherwise be difficult or impossible to detect.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card card-team">
+                        <img class="card-img rounded-0" src="{% static 'main/img/team/1.jpg' %}" alt="">
+                        <div class="card-team__body text-center">
+                            <h3><a href="#">Dr Adam Brain</a></h3>
+                            <p>Cardiologist</p>
+                            <div class="team-footer d-flex justify-content-between">
+                                <a class="dn_btn" href=""><i class="ti-mobile"></i>+91 9876543210</a>
+                                <ul class="card-team__social">
+                                    <li><a href="#"><i class="ti-facebook"></i></a></li>
+                                    <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
+                                    <li><a href="#"><i class="ti-instagram"></i></a></li>
+                                    <li><a href="#"><i class="ti-skype"></i></a></li>
+                                </ul> 
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card card-team">
+
+                        
+
+                <img class="card-img rounded-0" src="{% static 'main/img/team/2.jpg' %}" alt="">
+                        <div class="card-team__body text-center">
+                            <h3><a href="#">Dr Blian Judge</a></h3>
+                            <p>Cardiologist</p>
+                            <div class="team-footer d-flex justify-content-between">
+                                <a class="dn_btn" href=""><i class="ti-mobile"></i>+91 9876543210</a>
+                                <ul class="card-team__social">
+                                    <li><a href="#"><i class="ti-facebook"></i></a></li>
+                                    <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
+                                    <li><a href="#"><i class="ti-instagram"></i></a></li>
+                                    <li><a href="#"><i class="ti-skype"></i></a></li>
+                                </ul> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+               <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card card-team">
+
+                        
+
+                <img class="card-img rounded-0" src="{% static 'main/img/team/2.jpg' %}" alt="">
+                        <div class="card-team__body text-center">
+                            <h3><a href="#">Dr Blian Judge</a></h3>
+                            <p>Cardiologist</p>
+                            <div class="team-footer d-flex justify-content-between">
+                                <a class="dn_btn" href=""><i class="ti-mobile"></i>+91 9876543210</a>
+                                <ul class="card-team__social">
+                                    <li><a href="#"><i class="ti-facebook"></i></a></li>
+                                    <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
+                                    <li><a href="#"><i class="ti-instagram"></i></a></li>
+                                    <li><a href="#"><i class="ti-skype"></i></a></li>
+                                </ul> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    
+
+
+
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="{% static 'main/j/jquery-2.2.4.min.' %}"></script>
+<script src="{% static 'main/j/popper.' %}"></script>
+<script src="{% static 'main/j/bootstrap.min.' %}"></script>
+<script src="{% static 'main/j/stellar.' %}"></script>
+<script src="{% static 'vendors/owl-carousel/owl.carousel.min.' %}"></script>
+<script src="{% static 'main/j/jquery.ajaxchimp.min.' %}"></script>
+<script src="{% static 'main/j/waypoints.min.' %}"></script>
+<script src="{% static 'main/j/mail-script.' %}"></script>
+<script src="{% static 'main/j/contact.' %}"></script>
+<script src="{% static 'main/j/jquery.form.' %}"></script>
+<script src="{% static 'main/j/jquery.validate.min.' %}"></script>
+<script src="{% static 'main/j/mail-script.' %}"></script>
+<script src="{% static 'main/j/theme.' %}"></script>
+</body>
+</html>

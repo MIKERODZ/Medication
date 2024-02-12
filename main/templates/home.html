@@ -1,0 +1,81 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <title>DPMAS</title>
+    <!-- Bootstrap CSS -->
+
+    <link href="{% static 'main/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'main/css/themify-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'main/css/flaticon.css' %}" rel="stylesheet">
+    <link href="{% static 'main/vendors/fontawesome/css/all.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'main/owl-carousel/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'main/nimate-css/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'main/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'main/css/esponsive.css' %}" rel="stylesheet">
+
+</head>
+<body>
+
+    <!--================Header Menu Area =================-->
+    <header class="header_area">
+        <div class="top_menu row m0">
+  
+        </div>  
+        <div class="main_menu">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div style="margin-left: -90px; display: flex;">
+                        <a class="navbar-brand logo_h" href="/"><img style="height: 110px; width: 150px;", src="{% static 'main/img/health-logo.png' %}" alt="health-logo">
+                        </a>
+                    </div>
+                    
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="nav-collection">
+                        <ul class="link-collection">
+                            <li class="navLink"><a class="page-link" href="/">Home</a></li> 
+                            <li class="navLink"><a class="page-link" href="{% url 'about' %}">About</a></li> 
+                            <li class="navLink"><a class="page-link" href="{% url 'dr_list' %}">Doctors</a></li>
+                            <li class="navLink"><a class="page-link" href="{% url 'reg' %}">Register</a></li>      
+                            <li class="navLink"><a class="page-link" href="{% url 'login' %}">Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!--================Header Menu Area =================-->
+
+    <!--================Home Banner Area =================-->
+
+    <section class="banner-area d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-lg-6 col-xl-5" style="margin-bottom: -100px;">
+                    <h1>Disease Prediction<br>
+                    and Mediction Advice System</h1>
+                  
+                    <a href="" class="main_btn">Make an Appointment</a>
+                    <a href="" class="main_btn_light">View Department</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--================End Home Banner Area =================-->
+
+   
+</body>
+</html>

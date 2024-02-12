@@ -1,0 +1,120 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="{% static 'main/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'main/css/themify-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'main/css/flaticon.css' %}" rel="stylesheet">
+    <link href="{% static 'main/vendors/fontawesome/css/all.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'main/owl-carousel/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'main/nimate-css/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'main/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'main/css/esponsive.css' %}" rel="stylesheet">
+</head>
+<body>
+
+    <!--================Header Menu Area =================-->
+     <header class="header_area">
+        <div class="top_menu row m0">
+  
+        </div>  
+        <div class="main_menu">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <a class="navbar-brand logo_h" href="index.html"><img src="{% static 'main/img/logo.png' %}" alt=""></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav menu_nav ml-auto">
+                            <li class="nav-item"><a class="nav-link" href="/">Home</a></li> 
+                            <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li> 
+                            <li class="nav-item"><a class="nav-link" href="{% url 'dr_list' %}">Doctors</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'reg' %}">Register</a></li>      
+
+                            <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--================Header Menu Area =================-->
+
+    <!--================Home Banner Area =================-->
+    <section class="banner_area">
+      <div class="banner_inner d-flex align-items-center">
+        <div class="container">
+          <div
+          class="banner_content d-md-flex justify-content-between align-items-center"
+          >
+          <div class="mb-3 mb-md-0">
+              <h2>About Us</h2>
+              <p>Welcome to the Disease Prediction and Medication Advice System (DPMAS)!.</p>
+              <P>Our platform is designed to assist individuals in predicting potential diseases based on reported symptoms and
+                 assisting the doctors in providing relevant mediction advice. </P>
+          </div>
+          
+      </div>
+  </div>
+</div>
+</section>
+<!--================End Home Banner Area =================-->
+
+
+
+
+
+<!--================About  Area =================-->
+<section class="about-area">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-10 offset-md-1 col-lg-6 offset-lg-6 offset-xl-7 col-xl-5">
+                <div class="about-content">
+                    <h4>Healthcare Assistant</h4>
+                    <p>DPMAS aims to leverage supervised machine learning algorithms to analyze user-reported symptoms 
+                        and predict possible diseases accurately. By providing early predictions, users can take proactive
+                    measures to seek medical advice from the proffesional doctors, potentially improving health outcomes. </p>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================About Area End =================-->
+
+
+
+
+
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="{% static 'main/j/jquery-2.2.4.min.' %}"></script>
+<script src="{% static 'main/j/popper.' %}"></script>
+<script src="{% static 'main/j/bootstrap.min.' %}"></script>
+<script src="{% static 'main/j/stellar.' %}"></script>
+<script src="{% static 'vendors/owl-carousel/owl.carousel.min.' %}"></script>
+<script src="{% static 'main/j/jquery.ajaxchimp.min.' %}"></script>
+<script src="{% static 'main/j/waypoints.min.' %}"></script>
+<script src="{% static 'main/j/mail-script.' %}"></script>
+<script src="{% static 'main/j/contact.' %}"></script>
+<script src="{% static 'main/j/jquery.form.' %}"></script>
+<script src="{% static 'main/j/jquery.validate.min.' %}"></script>
+<script src="{% static 'main/j/mail-script.' %}"></script>
+<script src="{% static 'main/j/theme.' %}"></script>
+</body>
+</html>
