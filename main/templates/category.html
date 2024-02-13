@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<form action="{% url 'category' %}">
+    <div class="category">
+        <h1>REGISTER AS</h1>
+        <h3>Choose the category</h3>
+    </div>
+    <div class="container">
+        <a href="{% url 'reg' %}"><div class="as_patient">PATIENT</div></a>
+            <a href="{% url 'reg' %}"><div class="as_doctor">DOCTOR</div></a>
+             
+    </div>
+</form>
+
+{% endblock %}

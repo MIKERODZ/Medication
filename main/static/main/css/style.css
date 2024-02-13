@@ -58,6 +58,11 @@ button:focus {
 .border-bottom {
   border-bottom: 1px solid #e8edf1; }
 
+.category{
+  color: #298cdf;
+  text-align: center;
+}
+
 img {
   max-width: 100%; }
 

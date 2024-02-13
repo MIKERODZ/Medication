@@ -25,6 +25,9 @@ def doctor_list(request):
 def home(request):
 	return render(request, 'home.html')
 
+def category(request):
+	return render(request, 'category.html')
+
 
 def registerView(request):
 	return render(request, 'register.html')
