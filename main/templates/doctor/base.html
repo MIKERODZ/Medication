@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>TechSky</title>
+    <title>DPMAS</title>
     <link rel="stylesheet" href="{% static 'main/css/bootstrap/four/bootstrap.css' %}">
     <link href="{% static 'main/css/sb-admin.css' %}" rel="stylesheet">
 
@@ -15,7 +15,7 @@
 <!-- headers-->
 <nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
 
-    <a class="navbar-brand mr-1 text-primary" href="">Motech Smart Doctor</a>
+    <a class="navbar-brand mr-1 text-primary" href="">Disease Prediction and Medication Advice</a>
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
     </button>
@@ -39,7 +39,7 @@
                 <i class="fas fa-user-circle fa-fw text-primary"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                <a class="dropdown-item">{{ user.username }}</a>
+                <a class="dropdown-item">Dr.{{ user.username }}</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="" data-toggle="modal" data-target="#logoutModal">Logout</a>
             </div>
@@ -63,7 +63,7 @@
     <li class="nav-item active">
         <a class="nav-link" href="">
             <i class="fas fa-user-circle fa-fw text-primary"></i>
-            <span>Logged As {{ user.username }}</span>
+            <span>Logged As Dr.{{ user.username }}</span>
         </a>
     </li>
     <li class="nav-item">

@@ -30,11 +30,15 @@ def category(request):
 	return render(request, 'category.html')
 
 
-def registerView(request):
-	return render(request, 'register.html')
+def PatientRegisterView(request):
+	return render(request, 'PatientRegister.html')
+
+def DoctorRegisterView(request):
+	return render(request, 'DoctorRegister.html')
 
 
-def registerUser(request):
+
+def registerUserPatient(request):
 	if request.method == 'POST':
 		username = request.POST['username']
 		email = request.POST['email']
@@ -43,12 +47,28 @@ def registerUser(request):
 
 		a = User(username=username, email=email, password=password, is_patient=True)
 		a.save()
-		messages.success(request, 'Account Was Created Successfully')
-		return redirect('reg')
+		msg = messages.success(request, 'Account Was Created Successfully, You can now Login')
+		return render(request, 'login.html',msg)
+	    
 	else:
 		messages.error(request, 'Failed To Register, Try Again Later')
-		return redirect('reg')
+		return redirect('reg1')
+	
 
+def registerUserDoctor(request):
+	if request.method == 'POST':
+		username = request.POST['username']
+		email = request.POST['email']
+		password = request.POST['password']
+		password = make_password(password)
+
+		a = User(username=username, email=email, password=password, is_doctor=True)
+		a.save()
+		msg = messages.success(request, 'Account Was Created Successfully, You can now Login')
+		return render(request, 'login.html',msg)
+	else:
+		messages.error(request, 'Failed To Register, Try Again Later')
+		return redirect('reg2')
 
 def loginView(request):
 	if request.method == 'POST':
