@@ -18,7 +18,11 @@ class Medical(models.Model):
     s4 = models.CharField(max_length=200)
     s5 = models.CharField(max_length=200)
     disease = models.CharField(max_length=200)
-    medicine = models.CharField(max_length=200)
+    description = models.TextField()
+    precaution = models.CharField(max_length=255)
+    medication = models.CharField(max_length=255)
+    diet = models.CharField(max_length=255)
+    workout = models.CharField(max_length=555)
     patient = models.ForeignKey(User, related_name="patient", on_delete= models.CASCADE)
     doctor = models.ForeignKey(User, related_name="doctor", on_delete= models.CASCADE, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -48,7 +52,7 @@ class Profile(models.Model):
     birth_date = models.DateField(default='None')
     region = models.CharField(max_length=255, default='')
     gender = models.CharField(max_length=255)
-    country = models.CharField(max_length=255, default='Tanzania')
+    country = models.CharField(max_length=255, default='Uganda')
 
     def __str__(self):
         return self.country

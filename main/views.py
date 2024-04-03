@@ -12,7 +12,15 @@ from django.contrib import messages
 import joblib as joblib
 from django.contrib.auth.hashers import make_password
 import pandas as pd
+import pickle
 
+# load databasedataset===================================
+sym_des = pd.read_csv("datasets/symtoms_df.csv")
+precautions = pd.read_csv("datasets/precautions_df.csv")
+workout = pd.read_csv("datasets/workout_df.csv")
+description = pd.read_csv("datasets/description.csv")
+medications = pd.read_csv('datasets/medications.csv')
+diets = pd.read_csv("datasets/diets.csv")
 
 
 def about(request):
@@ -95,7 +103,7 @@ def doctor_home(request):
 	doctor = User.objects.filter(is_doctor=True).count()
 	patient = User.objects.filter(is_patient=True).count()
 	appointment = Ment.objects.filter(approved=True).count()
-	medical1 = Medical.objects.filter(medicine='See Doctor').count()
+	medical1 = Medical.objects.filter(medication='See Doctor').count()
 	medical2 = Medical.objects.all().count()
 	medical3 = int(medical2) - int(medical1)
 	
@@ -108,7 +116,7 @@ def patient_home(request):
 	doctor = User.objects.filter(is_doctor=True).count()
 	patient = User.objects.filter(is_patient=True).count()
 	appointment = Ment.objects.filter(approved=True).count()
-	medical1 = Medical.objects.filter(medicine='See Doctor').count()
+	medical1 = Medical.objects.filter(medication='See Doctor').count()
 	medical2 = Medical.objects.all().count()
 	medical3 = int(medical2) - int(medical1)
 
@@ -142,7 +150,26 @@ def create_profile(request):
 		gender = ["Male", "Female"]
 		context = {"users": {"users":users}, "choice":{"choice":choice}, "gender":gender}
 		return render(request, 'patient/create_profile.html', context)	
+# load model===========================================
+svc = pickle.load(open('models/svc.pkl','rb'))
 
+def helper(dis):
+    desc = description[description['Disease'] == dis]['Description']
+    desc = " ".join([w for w in desc])
+
+    pre = precautions[precautions['Disease'] == dis][['Precaution_1', 'Precaution_2', 'Precaution_3', 'Precaution_4']]
+    pre = [col for col in pre.values]
+
+    med = medications[medications['Disease'] == dis]['Medication']
+    med = [med for med in med.values]
+
+    die = diets[diets['Disease'] == dis]['Diet']
+    die = [die for die in die.values]
+
+    wrkout = workout[workout['disease'] == dis] ['workout']
+
+
+    return desc,pre,med,die,wrkout
 
 
 def diagnosis(request):
@@ -150,9 +177,6 @@ def diagnosis(request):
 	symptoms = sorted(symptoms)
 	context = {'symptoms':symptoms, 'status':'1'}
 	return render(request, 'patient/diagnosis.html', context)
-
-
-
 
 
 @csrf_exempt
@@ -169,10 +193,10 @@ def MakePredict(request):
     symptoms = [s1, s2, s3, s4, s5]
 
     # Load the trained model
-    clf = joblib.load('model/final_decision_tree_model.pkl')
+    svc = pickle.load(open('models/svc.pkl', 'rb'))
 
     # Load the list of diseases
-    data = pd.read_csv('Training.csv')
+    data = pd.read_csv('datasets/Training.csv')
 
     # Extract the list of symptom names from the columns of the DataFrame
     symptoms_list = data.columns.tolist()[:-1]  # Exclude the last column, which is the target (disease)
@@ -184,18 +208,24 @@ def MakePredict(request):
     symptom_array = np.array(symptom_array).reshape(1, -1)
 
     # Make a prediction using the loaded model
-    prediction = clf.predict(symptom_array)
+    prediction = svc.predict(symptom_array)
 
     # Retrieve the predicted disease name from the list of diseases
     predicted_disease = data['prognosis'].iloc[prediction[0]]
-
+	
+    dis_des, precautions, medications, rec_diet, workout = helper(predicted_disease)
     # Save the prediction to the database
-    medical_record = Medical(s1=s1, s2=s2, s3=s3, s4=s4, s5=s5, disease=predicted_disease, patient_id=patient_id)
+    medical_record = Medical(s1=s1, s2=s2, s3=s3, s4=s4, s5=s5, disease=predicted_disease,description=dis_des,
+							 precaution=precautions,medication=medications,diet=rec_diet,
+							 workout=workout,patient_id=patient_id)
     medical_record.save()
-
-    # Return the predicted disease name in the response
+	
+     # Return the predicted disease name in the response
     return JsonResponse({'status': predicted_disease})
 
+    #return render(request, 'diagnosis.html', {'predicted_disease': predicted_disease, 'dis_des': dis_des,
+                                                   #'precautions': precautions, 'medications': medications,
+                                                   #'rec_diet': rec_diet, 'workout': workout})
 
 def patient_result(request):
 	user_id = request.user.id
@@ -307,7 +337,7 @@ def MakeMend(request):
       test = np.array(test).reshape(1,-1)
       print(test.shape)
       
-      clf = joblib.load('model/medical_rf.pkl')
+      clf = joblib.load('models/medical_nb.pkl')
       prediction = clf.predict(test)
       prediction = prediction[0]
       print('Predicted Disease Is',prediction)
@@ -315,7 +345,7 @@ def MakeMend(request):
       try:
           check_medical = Medical.objects.filter(patient_id=disease).exists()
           if(check_medical == False):
-              Medical.objects.filter(pk= disease).update(medicine=prediction)
+              Medical.objects.filter(pk= disease).update(medication=prediction)
               return JsonResponse({'status':'recommended'})
           else:
               print('Drug Exist')
@@ -324,7 +354,7 @@ def MakeMend(request):
           print(e)    
   else:
       print('AI Can Not Recommend Drug')
-      Medical.objects.filter(pk= disease).update(medicine='See Doctor')
+      Medical.objects.filter(pk= disease).update(medication='See Doctor')
       return JsonResponse({'status':'not is store'})
 
 

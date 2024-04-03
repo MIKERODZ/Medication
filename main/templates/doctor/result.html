@@ -28,7 +28,7 @@
                             <th scope="col">Id</th>
                             <th scope="col">Name</th>
                             <th scope="col">Disease</th>
-                            <th scope="col">Medicine</th>
+                            <th scope="col">medication</th>
                             <th scope="col">Action</th>
 
 
@@ -42,10 +42,10 @@
                             <td>{{ d.id }}</td>
                             <td>{{ d.patient.username }}</td>
                             <td>{{ d.disease }}</td>
-                            {% if d.medicine == "" %}
+                            {% if d.medication == "" %}
                             <td>Yet Recommended</td>
                             {% else %}
-                            <td>{{ d.medicine }}</td>
+                            <td>{{ d.medication }}</td>
                             {% endif %}
                             <td><input class="btn btn-primary btn-sm btn_recommend" type="button" data-sid="{{d.id}}" value="Recommend">
                           </td>
