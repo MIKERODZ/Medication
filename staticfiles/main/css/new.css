@@ -1,0 +1,42 @@
+body {
+    line-height: 27px;
+    font-size: 14px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: normal;
+    color: #797979; }
+
+.category{
+    color: #298cdf;
+    text-align: center;
+  }
+  .container{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  a {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+  }
+.as_patient{
+    display: flex;
+    height: 100px;
+    width: 100px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: rgb(28, 27, 27);
+    border-width: 3px;
+    margin-left: 20px;
+    
+}
+.as_doctor{
+    display: flex;
+    height: 100px;
+    width: 100px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: rgb(28, 27, 27);
+    border-width: 3px;
+}
