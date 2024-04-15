@@ -1,4 +1,5 @@
 <script type="text/javascript">
+	let  button = document.getElementById("button");
 $(document).ready(function(){
 		
    // Predict Disease
@@ -43,6 +44,9 @@ $(document).ready(function(){
 				console.log('Predicted Disease',x);
 			    $('#result').html("");
 				$('#result').append('There Are Chances You Have ' + x);
+				button = document.createElement('button');
+				button.innerText('Seek medication advice');
+				
 
 			}
 		});

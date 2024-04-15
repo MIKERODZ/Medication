@@ -38,14 +38,6 @@ def category(request):
 	return render(request, 'category.html')
 
 
-def PatientRegisterView(request):
-	return render(request, 'PatientRegister.html')
-
-def DoctorRegisterView(request):
-	return render(request, 'DoctorRegister.html')
-
-
-
 def registerUserPatient(request):
 	if request.method == 'POST':
 		username = request.POST['username']
@@ -396,3 +388,6 @@ def SaveMent(request):
   except Exception as e:
           print(e)
           return JsonResponse({'status':'error'}) 
+  
+
+  
