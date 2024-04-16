@@ -1,1 +1,1 @@
-web : gunicorn dpmas.wsgi
+web : gunicorn dpmas.wsgi --log-file- 
