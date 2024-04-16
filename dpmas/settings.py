@@ -84,11 +84,11 @@ WSGI_APPLICATION = 'dpmas.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'healthcare_db',
+        'NAME': 'railway',
         'USER': 'root',
-        'PASSWORD': 'mike0309',
-        'HOST': 'localhost',  # Set to your database host
-        'PORT': '3306',       # Set to your database port
+        'PASSWORD': 'pDJAbZFXxKYViYqpiEtIilnegcAlhmJm',
+        'HOST': 'mysql://root:pDJAbZFXxKYViYqpiEtIilnegcAlhmJm@roundhouse.proxy.rlwy.net:40357/railway',  # Set to your database host
+        'PORT': '40357',       # Set to your database port
     }
 }
 
